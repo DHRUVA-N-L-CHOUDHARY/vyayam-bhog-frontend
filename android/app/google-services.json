@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "483777098971",
+    "project_id": "vyayam-shala",
+    "storage_bucket": "vyayam-shala.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483777098971:android:71ce9d6593f7d3301948fe",
+        "android_client_info": {
+          "package_name": "com.example.vyamshala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483777098971-a9r6idp1j7li486t231bgv3i4qvhn7kg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vyamshala",
+            "certificate_hash": "716c26e610ad862dbabe2d51715a0b3e2677a719"
+          }
+        },
+        {
+          "client_id": "483777098971-neegf1uabfjcfoiivdo562avefmael66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC51NZ5bg_SnIMInWo3fRG3mZXxEUWa0YM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483777098971-neegf1uabfjcfoiivdo562avefmael66.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483777098971-68osskec65tvvgrrqq7qb991qrithr0c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vyamshala"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
