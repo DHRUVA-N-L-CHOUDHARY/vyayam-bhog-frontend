@@ -71,10 +71,9 @@ class _phoneNumberState extends State<phoneNumber> {
                           await _validate().then(
                             (value) {
                               if (value == true) {
-                                String number = "$_countryPhoneCode ${_phone.text}";
+                                String number = "$_countryPhoneCode${_phone.text}";
                                 print(number);
-                                authController
-                                    .login(number);
+                                authController.login(number);
                                 //authController.login(_phone.text);
                                 Get.to(() => OTPScreen(number: number,));
                               }

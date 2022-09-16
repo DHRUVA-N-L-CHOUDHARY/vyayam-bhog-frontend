@@ -188,7 +188,8 @@ import 'package:vyamshala/src/config/constants/size_config.dart';
 //   }
 // }
 class CustomDropdown extends StatefulWidget {
-  const CustomDropdown({Key? key}) : super(key: key);
+  final Function(String) onChanged;
+  const CustomDropdown({Key? key, required this.onChanged}) : super(key: key);
 
   @override
   _CustomDropdownState createState() => _CustomDropdownState();
@@ -240,6 +241,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                 onChanged: (String? newValue) {
                   setState(() {
                     dropdownvalue = newValue ?? "Male";
+                    widget.onChanged(dropdownvalue);
                   });
                 },
               ),

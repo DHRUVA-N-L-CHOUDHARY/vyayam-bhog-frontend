@@ -12,9 +12,9 @@ class Usermodel {
   String? location;
   String? email;
   String? gender;
-  String? phonenumber;
+  String? phoneNumber;
   DateTime? dob;
-  bool? isPremiumUser;
+  bool? isPremium;
   String? description;
   Usermodel(
       {this.userid,
@@ -22,8 +22,8 @@ class Usermodel {
       this.location,
       this.email,
       this.gender,
-      this.phonenumber,
-      this.isPremiumUser,
+      this.phoneNumber,
+      this.isPremium,
       this.description,
       this.dob});
   factory Usermodel.fromJson(Map<String, dynamic> json) =>

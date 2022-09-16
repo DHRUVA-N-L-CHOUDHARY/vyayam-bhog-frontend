@@ -6,6 +6,7 @@ import 'package:vyamshala/src/controllers/auth_controller.dart';
 import 'package:vyamshala/src/screens/pinput_screen/otp_page.dart';
 import 'package:vyamshala/src/screens/registration.dart';
 import 'package:vyamshala/src/utils/widgets/custom_button.dart';
+import 'package:vyamshala/src/utils/widgets/loading_screen.dart';
 
 class OTPScreen extends StatefulWidget {
   final String? number;
@@ -25,7 +26,7 @@ class _OTPScreenState extends State<OTPScreen> {
         body: GetBuilder(
           init: authController,
           builder: (AuthController _) {
-            return _.isLoading ? const CircularProgressIndicator() :
+            return _.isLoading ? const LoadingScreen() :
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

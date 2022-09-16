@@ -46,7 +46,7 @@ class MealsmainPage extends StatelessWidget {
                   child:Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: <Widget>[
-                      for(var i in text)
+                      // for(var i in text)
                       Padding(
                         padding: EdgeInsets.all(SizeConfig(context).getProportionatePadding()),
                         child: InkWell(
