@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:vyamshala/src/screens/dashboard/dashboard_page.dart';
+import 'package:vyamshala/src/screens/navigation.dart';
 import 'package:vyamshala/src/utils/widgets/phone_number.dart';
 
 class AuthController extends GetxController {
@@ -32,7 +32,7 @@ class AuthController extends GetxController {
     if (user == null) {
       Get.offAll(() => const phoneNumber());
     } else {
-      Get.offAll(() => DashboardPage());
+      Get.offAll(() => const NavigationHome());
     }
   }
 
@@ -50,7 +50,7 @@ class AuthController extends GetxController {
           tokenId = await currentUser.getIdToken(true);
           print(tokenId);
           GetStorage().write('tokenId', tokenId);
-          Get.off( DashboardPage());
+          Get.off(const NavigationHome());
         }
       },
       verificationFailed: (FirebaseAuthException e) {
@@ -89,7 +89,7 @@ class AuthController extends GetxController {
         tokenId = await firebaseAuth.currentUser?.getIdToken(true);
         print(tokenId);
         GetStorage().write('tokenId', tokenId);
-        Get.offAll( DashboardPage());
+        Get.offAll(const NavigationHome());
       }
     } on Exception catch (e) {
       isLoading = false;

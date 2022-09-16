@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:get_storage/get_storage.dart';
+import 'package:vyamshala/src/models/user_model.dart';
 import 'auth_controller.dart';
 
 class DioAuthClient {
   final Dio _dio = Dio();
-  final _baseUrl = 'http://localhost:9999';
+  final _baseUrl = 'https://vyam-bhog-server.herokuapp.com';
   AuthController authController = Get.find();
   String? tokenId = GetStorage().read('tokenId');
 
@@ -14,14 +15,13 @@ class DioAuthClient {
     _dio.interceptors.add(TokenInterceptor());
   }
 
-  /*
   Future<bool> login() async {
     authController.storeToken();
     tokenId = GetStorage().read('tokenId');
     try {
-      Response response = await _dio.post('$_baseUrl/auth/astroLogin',
+      Response response = await _dio.post('$_baseUrl/auth/signin',
           data: jsonEncode({
-            "firebaseId": tokenId,
+            "firebaseID": tokenId,
           }));
       if(response.statusCode == 200) {
         GetStorage().write('authToken', response.data["data"]);
@@ -39,14 +39,14 @@ class DioAuthClient {
     return false;
   }
 
-  Future<bool> signup(Profile profile) async {
+  Future<bool> signup(Usermodel profile) async {
     var data = profile.toJson();
     authController.storeToken();
     tokenId = GetStorage().read('tokenId');
-    data["firebaseId"] = tokenId;
+    data["firebaseID"] = tokenId;
     try {
       Response response = await _dio.post(
-        '$_baseUrl/auth/astroSignup',
+        '$_baseUrl/auth/signup',
         data: data,
       );
       print(response);
@@ -56,12 +56,13 @@ class DioAuthClient {
         return false;
       } else {
         print(e.message);
+        return false;
       }
     }
     return true;
   }
 
-  Future<bool> update(Profile profile) async {
+/*  Future<bool> update(Profile profile) async {
     var data = profile.toJson();
     authController.storeToken();
     String? authToken = GetStorage().read('authToken');

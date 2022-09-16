@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:vyamshala/src/models/item_model.dart';
 
 class DioClient {
   final Dio _dio = Dio();
@@ -10,6 +11,20 @@ class DioClient {
     _dio.interceptors
       ..add(TokenInterceptor())
       ..add(DioCacheInterceptor(options: options));
+  }
+
+  Future<Itemmodel?> getItem() async {
+    Itemmodel? itemDetails;
+    try {
+      Response itemDetailsData =
+      await _dio.get('$_baseUrl/astro/getProfile');
+      itemDetails = Itemmodel.fromJson(itemDetailsData.data["data"]);
+    } on DioError catch (e) {
+      if (e.response != null) {
+      } else {
+      }
+    }
+    return itemDetails;
   }
 
   Dio get dio => _dio;

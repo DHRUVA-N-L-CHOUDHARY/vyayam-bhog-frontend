@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:vyamshala/src/config/constants/size_config.dart';
 
 class DatePicker extends StatefulWidget {
-  final Function(DateTime)? onChanged;
+  final Function(DateTime) onChanged;
   final DateTime? initialDate;
   final DateTime? finalDate;
-  const DatePicker({Key? key, this.onChanged, this.initialDate, this.finalDate})
+  const DatePicker({Key? key, required this.onChanged, this.initialDate, this.finalDate})
       : super(key: key);
 
   @override
@@ -46,7 +46,7 @@ class _DatePickerState extends State<DatePicker> {
     return InkWell(
       onTap: () async {
         DateTime date = await _selectDate(context);
-        widget.onChanged!(date);
+        widget.onChanged(date);
       },
       // ignore: avoid_unnecessary_containers
       child: Container(

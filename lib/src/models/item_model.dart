@@ -9,24 +9,25 @@ part 'item_model.g.dart';
 
 @JsonSerializable()
 class Itemmodel {
-  String? itemid;
-  String? categoryid;
-  String? vendorid;
+  @JsonKey(name: "_id")
+  String? id;
+  String? category;
+  String? vendor;
   String? name;
   String? description;
-  String? imageurl;
+  String? imageURL;
   String? availability;
-  String? amount;
+  String? price;
   Itemmodel(
       {
-      this.amount,
+      this.price,
       this.availability,
-      this.categoryid,
+      this.category,
       this.description,
-      this.imageurl,
-      this.itemid,
+      this.imageURL,
+      this.id,
       this.name,
-      this.vendorid});
+      this.vendor});
   factory Itemmodel.fromJson(Map<String, dynamic> json) =>
       _$ItemmodelFromJson(json);
   Map<String, dynamic> toJson() => _$ItemmodelToJson(this);

@@ -39,10 +39,11 @@ class _InputTextwidgetState extends State<InputTextwidget> {
             padding:
                 EdgeInsets.all(SizeConfig(context).getProportionatePadding()),
             child: TextFormField(
+              key: Key(widget.initialText ?? ""),
               keyboardType: widget.keytype,
               decoration: InputDecoration(
                 border: const UnderlineInputBorder(),
-                labelText: widget.initialText,
+                hintText: widget.initialText,
                 prefixIcon: Icon(
                   widget.iconData,
                   color: kPrimaryColor,
@@ -64,6 +65,7 @@ class _InputTextwidgetState extends State<InputTextwidget> {
                     vertical: SizeConfig(context).getProportionatePadding(),
                     horizontal: 0),
                 child: TextFormField(
+                  key: Key(widget.initialText ?? ""),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(
@@ -71,8 +73,8 @@ class _InputTextwidgetState extends State<InputTextwidget> {
                     ),
                     hintText: widget.initialText,
                   ),
-                  controller: widget.initialText == null ? widget.textEditingController : null,
-                  //onChanged: widget.onChanged,
+                  controller: widget.textEditingController,
+                  // onChanged: widget.onChanged,
                 ),
               ),
             ]),

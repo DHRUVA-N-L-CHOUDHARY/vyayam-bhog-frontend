@@ -12,8 +12,8 @@ Usermodel _$UsermodelFromJson(Map<String, dynamic> json) => Usermodel(
       location: json['location'] as String?,
       email: json['email'] as String?,
       gender: json['gender'] as String?,
-      phonenumber: json['phonenumber'] as String?,
-      isPremiumUser: json['isPremiumUser'] as bool?,
+      phoneNumber: json['phoneNumber'] as String?,
+      isPremium: json['isPremium'] as bool?,
       description: json['description'] as String?,
       dob: json['dob'] == null ? null : DateTime.parse(json['dob'] as String),
     );
@@ -24,8 +24,8 @@ Map<String, dynamic> _$UsermodelToJson(Usermodel instance) => <String, dynamic>{
       'location': instance.location,
       'email': instance.email,
       'gender': instance.gender,
-      'phonenumber': instance.phonenumber,
+      'phoneNumber': instance.phoneNumber,
       'dob': instance.dob?.toIso8601String(),
-      'isPremiumUser': instance.isPremiumUser,
+      'isPremium': instance.isPremium,
       'description': instance.description,
     };
